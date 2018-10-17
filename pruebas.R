@@ -1,3 +1,5 @@
+shiny::runApp("Front_ProPet", launch.browser = TRUE)
+
 
 setwd("./Front_ProPet")
 breed <- read.csv("./files/dog_breed.csv")

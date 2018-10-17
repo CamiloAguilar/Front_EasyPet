@@ -118,7 +118,7 @@ index,breed,Spanish,Homologacion,Producto_1,Producto_2,Producto_3,Producto_4,Pro
 267,standardpoodle,Poodle_estandar,French_poodle,individual,arnes,pechera,collar_perro,trailla,porta_bolsas,cepillo,a_bordo,llavero,monos,placa
 268,Mexicanhairless,Xoloitzcuintle,Grande,porta_bolsas,cepillo,monos,placa,,,,,,,
 999,Criollo,Criollo,Criollo,individual,arnes,prod_especial,collar_perro,trailla,porta_bolsas,cepillo,a_bordo,,,
-282,gato,gato,gato,individual,individual,individual,individual,collar_gato,a_bordo,a_bordo,a_bordo,,,
-283,gato,gato,gato,individual,individual,individual,individual,collar_gato,a_bordo,a_bordo,a_bordo,,,
-284,gato,gato,gato,individual,individual,individual,individual,collar_gato,a_bordo,a_bordo,a_bordo,,,
-285,gato,gato,gato,individual,individual,individual,individual,collar_gato,a_bordo,a_bordo,a_bordo,,,
+282,gato,gato,gato,individual_gato,llavero_gato,individual_gato,individual_gato,a_bordo_gato,a_bordo_gato,collar_gato,a_bordo_gato,,,
+283,gato,gato,gato,individual_gato,llavero_gato,individual_gato,individual_gato,a_bordo_gato,a_bordo_gato,collar_gato,a_bordo_gato,,,
+284,gato,gato,gato,individual_gato,llavero_gato,individual_gato,individual_gato,a_bordo_gato,a_bordo_gato,collar_gato,a_bordo_gato,,,
+285,gato,gato,gato,individual_gato,llavero_gato,individual_gato,individual_gato,a_bordo_gato,a_bordo_gato,collar_gato,a_bordo_gato,,,
