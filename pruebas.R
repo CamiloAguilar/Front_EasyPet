@@ -1,11 +1,11 @@
 
 setwd("./Front_ProPet")
 breed <- read.csv("./files/dog_breed.csv")
-breed$breed[1]
+class(breed$breed[1]); breed$breed[1]
 
 finder <- read.csv("./files/razas_clasificador con productos.csv")
 
-finder[which(finder$breed == as.character(breed$breed[1])),5]
+finder[which(finder$index == (breed$breed[1])),1]
 
 
 ## Variables de entorno

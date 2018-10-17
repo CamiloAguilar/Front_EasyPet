@@ -14,7 +14,9 @@ shinyServer({
   function(input, output, session) {
     
     ## Variables de entorno
-    col_fichero = 4 ## Columna para buscar nombre fichero
+    col_fichero = 1 ## Columna para buscar nombre fichero
+    col_finder = 'index' ## Columna en finder para buscar imagenes en carpeta
+    
     prod_pet <- c('individual', 'a_bordo', 'llavero')
     len_arnes <- list.files("./images/arnes")
     len_collarDog <- list.files("./images/collar_perro")
@@ -25,14 +27,14 @@ shinyServer({
     
     
     breed <- reactiveFileReader(
-      intervalMillis = 1,
+      intervalMillis = 4000,
       session = session,
       filePath = './files/dog_breed.csv',
       readFunc = read.csv
     ) 
     
     finder <- reactiveFileReader(
-      intervalMillis = 1000,
+      intervalMillis = 100000,
       session = session,
       filePath = './files/razas_clasificador con productos.csv',
       readFunc = read.csv
@@ -44,7 +46,7 @@ shinyServer({
     output$image1 <- renderImage({
       
       ## La columna 5 nos da el producto 1
-      folder1 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 5])
+      folder1 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 5])
       
       switch(folder1,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -57,13 +59,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file1 <- ifelse(folder1 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
-        src = paste0("./images/", folder1, "/", file1, ".jpg"), #"./images/arnes/ARNES_002.jpg",
+        src = paste0("./images/", folder1, "/", file1, ".jpg"),
         filetype = "image/jpeg",
-        alt = "my doggy_1",
+        alt = paste0("./images/", folder1, "/", file1, ".jpg"),
         width = 300,
         height = 400
       ))
@@ -76,7 +78,7 @@ shinyServer({
     output$image2 <- renderImage({
       
       ## La columna 6 nos da el producto 2
-      folder2 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 6])
+      folder2 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 6])
       
       switch(folder2,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -89,13 +91,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file2 <- ifelse(folder2 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
-        src = paste0("./images/", folder2, "/", file2, ".jpg"), #"./images/arnes/ARNES_002.jpg",
+        src = paste0("./images/", folder2, "/", file2, ".jpg"), 
         filetype = "image/jpeg",
-        alt = "my doggy",
+        alt = paste0("./images/", folder2, "/", file2, ".jpg"),
         width = 300,
         height = 400
       ))
@@ -108,7 +110,7 @@ shinyServer({
     output$image3 <- renderImage({
       
       ## La columna 7 nos da el producto 3
-      folder3 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 7])
+      folder3 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 7])
       
       switch(folder3,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -121,13 +123,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file3 <- ifelse(folder3 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
-        src = paste0("./images/", folder3, "/", file3, ".jpg"), #"./images/arnes/ARNES_002.jpg",
+        src = paste0("./images/", folder3, "/", file3, ".jpg"), 
         filetype = "image/jpeg",
-        alt = "my doggy",
+        alt = paste0("./images/", folder3, "/", file3, ".jpg"),
         width = 300,
         height = 400
       ))
@@ -140,7 +142,7 @@ shinyServer({
     output$image4 <- renderImage({
       
       ## La columna 8 nos da el producto 4
-      folder4 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 8])
+      folder4 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 8])
       
       switch(folder4,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -154,7 +156,7 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file4 <- ifelse(folder4 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
@@ -173,7 +175,7 @@ shinyServer({
     output$image5 <- renderImage({
       
       ## La columna 9 nos da el producto 5
-      folder5 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 9])
+      folder5 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 9])
       
       switch(folder5,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -186,13 +188,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file5 <- ifelse(folder5 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
         src = paste0("./images/", folder5, "/", file5, ".jpg"), #"./images/arnes/ARNES_002.jpg",
         filetype = "image/jpeg",
-        alt = "my doggy",
+        alt = paste0("./images/", folder5, "/", file5, ".jpg"),
         width = 300,
         height = 400
       ))
@@ -205,7 +207,7 @@ shinyServer({
     output$image6 <- renderImage({
       
       ## La columna 10 nos da el producto 6
-      folder6 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 10])
+      folder6 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 10])
       
       switch(folder6,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -218,13 +220,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file6 <- ifelse(folder6 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
         src = paste0("./images/", folder6, "/", file6, ".jpg"), #"./images/arnes/ARNES_002.jpg",
         filetype = "image/jpeg",
-        alt = "my doggy",
+        alt = paste0("./images/", folder6, "/", file6, ".jpg"),
         width = 300,
         height = 400
       ))
@@ -237,7 +239,7 @@ shinyServer({
     output$image7 <- renderImage({
       
       ## La columna 11 nos da el producto 7
-      folder7 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 11])
+      folder7 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 11])
       
       switch(folder7,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -250,7 +252,7 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file7 <- ifelse(folder7 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
@@ -269,7 +271,7 @@ shinyServer({
     output$image8 <- renderImage({
       
       ## La columna 12 nos da el producto 8
-      folder8 <- as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), 12])
+      folder8 <- as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), 12])
       
       switch(folder8,
              arnes = {aleatorio = sample(len_arnes, 1)},
@@ -282,13 +284,13 @@ shinyServer({
       
       ## La columna 4 nos da la raza homologada
       file8 <- ifelse(folder8 %in% prod_pet, 
-                      as.character(finder()[which(finder()$breed == as.character(breed()$breed[1])), col_fichero]),
+                      as.character(finder()[which(finder()['index'] == as.character(breed()$breed[1])), col_fichero]),
                       unlist(strsplit(aleatorio, "\\."))[1])
       
       return(list(
         src = paste0("./images/", folder8, "/", file8, ".jpg"),
         filetype = "image/jpeg",
-        alt = "perroooooooo",
+        alt = paste0("./images/", folder8, "/", file8, ".jpg"),
         width = 300,
         height = 400
       ))
