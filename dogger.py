@@ -22,7 +22,7 @@ ap.add_argument("-l", "--labels", required=True,
 	help="path to ImageNet labels (i.e., syn-sets)")
 args = vars(ap.parse_args())
 
-face_cascade = cv2.CascadeClassifier('./cascade_files/haarcascade_frontalface_alt.xml')
+#face_cascade = cv2.CascadeClassifier('./cascade_files/haarcascade_frontalface_alt.xml')
 
 def face_detector(frame):
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -82,11 +82,11 @@ while True:
 
 	for (i, idx) in enumerate(idxs):
 			if i == 0:
-				if ((idx >= 151) & (idx <=267) & (detections[0][idx]*100>40)):
+				if ((idx >= 151) & (idx <=267) & (detections[0][idx]*100>=30)):
 					lista_nueva = [idx]
 					text = "DOG: raza {}, {:.2f}%".format(classes[idx],detections[0][idx] * 100)
 					cv2.putText(frame, text, (5, 25),  cv2.FONT_HERSHEY_SIMPLEX,0.7, (0, 0, 255), 2)
-				elif ((idx >= 151) & (idx <=267) & (detections[0][idx]*100<41)):
+				elif ((idx >= 151) & (idx <=267) & (detections[0][idx]*100<30)):
 					lista_nueva = [999]
 					text = "DOG: Criollo, {:.2f}%".format(100 - (detections[0][idx]*100))
 					cv2.putText(frame, text, (5, 25),  cv2.FONT_HERSHEY_SIMPLEX,0.7, (0, 0, 255), 2)
@@ -98,7 +98,8 @@ while True:
 	print('Breed:', lista_nueva)
 	df = pd.DataFrame(lista_nueva, columns=["breed"])
 	
-	if ((i_iter%5 == 0) & (lista_nueva != lista_ant)):
+	#if ((i_iter%5 == 0) & (lista_nueva != lista_ant)):
+	if ((i_iter%5 == 0)):
 		try:
 			df.to_csv('Front_ProPet/files/dog_breed.csv', index=False)
 		except PermissionError as e:

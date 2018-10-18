@@ -1,1 +1,1 @@
-python C:\Users\c804324\Documents\GitHub\Front_EasyPet\dogger.py --prototxt bvlc_googlenet.prototxt --model bvlc_googlenet.caffemodel --labels synset_words.txt %*
+python C:\Users\Camilo\Documents\GitHub\Front_EasyPet\dogger.py --prototxt bvlc_googlenet.prototxt --model bvlc_googlenet.caffemodel --labels synset_words.txt %*
