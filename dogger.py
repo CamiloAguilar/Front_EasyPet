@@ -97,11 +97,15 @@ while True:
 
 	print('Breed:', lista_nueva)
 	df = pd.DataFrame(lista_nueva, columns=["breed"])
-	
+
 	#if ((i_iter%5 == 0) & (lista_nueva != lista_ant)):
 	if ((i_iter%5 == 0)):
 		try:
 			df.to_csv('Front_ProPet/files/dog_breed.csv', index=False)
+			if ((len(lista_nueva)!=0)):
+				if(df.breed[0] != 999):
+					time.sleep(4)
+					#lista_nueva = [999]
 		except PermissionError as e:
 			print(e)
 		i_iter+=1

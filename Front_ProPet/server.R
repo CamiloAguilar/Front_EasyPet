@@ -30,6 +30,7 @@ shinyServer({
     len_individual_gato <- list.files("./images/individual_gato")
     len_llavero_gato <- list.files("./images/llavero_gato")
     len_abordo_gato <- list.files("./images/a_bordo_gato")
+    len_placa <- list.files("./images/placa")
     
     
     breed <- reactiveFileReader(
@@ -57,15 +58,16 @@ shinyServer({
       switch(folder1,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
              
       )
       
@@ -95,15 +97,16 @@ shinyServer({
       switch(folder2,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -132,15 +135,16 @@ shinyServer({
       switch(folder3,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -177,7 +181,8 @@ shinyServer({
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -206,15 +211,16 @@ shinyServer({
       switch(folder5,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -243,15 +249,16 @@ shinyServer({
       switch(folder6,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -280,15 +287,16 @@ shinyServer({
       switch(folder7,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
@@ -317,15 +325,16 @@ shinyServer({
       switch(folder8,
              arnes = {aleatorio = sample(len_arnes, 1)},
              trailla = {aleatorio = sample(len_trailla, 1)},
-             collarperro = {aleatorio = sample(len_collarDog, 1)},
-             collargato = {aleatorio = sample(len_collarCat, 1)},
+             collar_perro = {aleatorio = sample(len_collarDog, 1)},
+             collar_gato = {aleatorio = sample(len_collarCat, 1)},
              pechera = {aleatorio = sample(len_pechera, 1)},
              porta_bolsas = {aleatorio = sample(len_portabolsas, 1)},
              monos = {aleatorio = sample(len_mono, 1)},
              cepillo = {aleatorio = sample(len_cepillo, 1)},
              individual_gato = {aleatorio = sample(len_individual_gato, 1)},
              llavero_gato = {aleatorio = sample(len_llavero_gato, 1)},
-             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)}
+             a_bordo_gato = {aleatorio = sample(len_abordo_gato, 1)},
+             placa = {aleatorio = sample(len_placa, 1)}
       )
       
       ## La columna 4 nos da la raza homologada
